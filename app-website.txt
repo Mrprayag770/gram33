@@ -1,0 +1,58 @@
+const axios = require("axios");
+const cheerio = require("cheerio");
+
+const url =
+  "https://mnregaweb4.nic.in/netnrega/state_html/DPCApprove_Workdetail.aspx?state_name=KARNATAKA&state_code=15&district_name=KODAGU&district_code=1518&block_name=SOMVARPET&block_code=1518002&panchayat_name=7TH%20HOSKOTE&panchayat_code=1518002040&fin_year=2023-2024&work_code=1518002/IF/93393042892341947&short_name=KN&work_name=7%E0%B2%A8%E0%B3%87%E0%B2%B9%E0%B3%8A%E0%B2%B8%E0%B2%95%E0%B3%8B%E0%B2%9F%E0%B3%86%E0%B2%97%E0%B3%8D%E0%B2%B0%E0%B2%BE%E0%B2%AE%E0%B2%AA%E0%B3%82%E0%B2%9A%E0%B2%BE%E0%B2%AF%E0%B2%A4%E0%B2%BF%20%E0%B2%B5%E0%B3%8D%E0%B2%AF%E0%B2%BE%E0%B2%AA%E0%B3%8D%E0%B2%A4%E0%B2%BF%E0%B2%AF%20%E0%B2%B5%E0%B2%BF%E0%B2%95%E0%B3%8D%E0%B2%B0%E0%B2%82%20%E0%B2%B0%E0%B2%B5%E0%B2%B0%E0%B2%9C%E0%B2%BE%E0%B2%97%E0%B2%A6%E0%B2%B2%E0%B3%8D%E0%B2%B2%E0%B2%BF%20%E0%B2%A4%E0%B3%8B%E0%B2%9F%E0%B3%8D%E0%B2%9F%E0%B2%BF%E0%B2%B2%E0%B3%81%E0%B2%97%E0%B3%81%E0%B2%82%E0%B2%A1%E0%B2%BF%20%E0%B2%A8%E0%B2%BF%E0%B2%B0%E0%B3%8D%E0%B2%AE%E0%B2%BE%E0%B2%A3&source=national&Digest=cfAHJfZIv3EyefTdddxsBw";
+
+axios
+  .get(url)
+  .then((response) => {
+    const html = response.data;
+    const $ = cheerio.load(html);
+
+    // Use the appropriate CSS selector to select the span element by its id
+    const spanElement = $("#ctl00_ContentPlaceHolder1_wrklbl");
+    const spanElement1 = $("#ctl00_ContentPlaceHolder1_blklbl");
+
+    // Check if the span element with the specified id exists
+    if (spanElement.length > 0) {
+      // Extract and log the text content of the span element
+      const textContent = spanElement.text();
+      console.log("Extracted Text:", textContent);
+
+      const inputString = String(textContent);
+  // "1518002/IF/93393042892341947 (7ನೇಹೊಸಕೋಟೆಗ್ರಾಮಪೂಚಾಯತಿ ವ್ಯಾಪ್ತಿಯ ವಿಕ್ರಂ ರವರಜಾಗದಲ್ಲಿ ತೋಟ್ಟಿಲುಗುಂಡಿ ನಿರ್ಮಾಣ)";
+
+const firstSpaceIndex = inputString.indexOf(" ");
+
+if (firstSpaceIndex !== -1) {
+  const trimmedString = inputString.substring(0, firstSpaceIndex).trim();
+  console.log(trimmedString);
+} else {
+  console.log(inputString.trim());
+}
+
+
+
+
+      
+    } else {
+      console.log("Span element not found");
+    }
+
+    // Check if the span element with the specified id exists
+    if (spanElement1.length > 0) {
+      // Extract and log the text content of the span element
+      const textContent1 = spanElement1.text();
+      console.log("Extracted Text:", textContent1);
+    } else {
+      console.log("Span element not found");
+    }
+
+
+
+
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });

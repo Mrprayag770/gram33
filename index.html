@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+
+
+
+
+
+        }
+
+        #small {
+            font-weight: 500;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.5;
+            background-color: #f1f3fb;
+            padding: 0 2rem;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        input {
+            appearance: none;
+            border-radius: 0;
+        }
+
+        .card {
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 425px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px 0 rgba(153, 153, 153, .25);
+            padding: 0.75rem;
+        }
+
+        .card-image {
+            border-radius: 8px;
+            overflow: hidden;
+            padding-bottom: 65%;
+            background-image: url('https://rtiguru.com/public/uploads/form_image/gram-panchayat.jpg');
+            background-repeat: no-repeat;
+            background-size: 150%;
+            background-position: 0 5%;
+            position: relative;
+        }
+
+        .card-heading {
+            position: absolute;
+            left: 10%;
+            top: 15%;
+            right: 10%;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #735400;
+            line-height: 1.222;
+        }
+
+        .card-heading small {
+            display: block;
+            font-size: 0.75em;
+            font-weight: 400;
+            margin-top: 0.25em;
+        }
+
+        .card-form {
+            padding: 2rem 1rem 0;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: column-reverse;
+            position: relative;
+            padding-top: 1.5rem;
+        }
+
+        .input+.input {
+            margin-top: 1.5rem;
+        }
+
+        .input-label {
+            color: #8597a3;
+            position: absolute;
+            top: 1.5rem;
+            transition: 0.25s ease;
+        }
+
+        .input-field {
+            border: 0;
+            z-index: 1;
+            background-color: transparent;
+            border-bottom: 2px solid #eee;
+            font: inherit;
+            font-size: 1.125rem;
+            padding: 0.25rem 0;
+        }
+
+        .input-field:focus,
+        .input-field:valid {
+            outline: 0;
+            border-bottom-color: #6658d3;
+        }
+
+        .input-field:focus+.input-label,
+        .input-field:valid+.input-label {
+            color: #6658d3;
+            transform: translateY(-1.5rem);
+        }
+
+        .action {
+            margin-top: 2rem;
+        }
+
+        .action-button {
+            font: inherit;
+            font-size: 1.25rem;
+            padding: 1em;
+            width: 100%;
+            font-weight: 500;
+            background-color: #6658d3;
+            border-radius: 6px;
+            color: #fff;
+            border: 0;
+        }
+
+        .action-button:focus {
+            outline: 0;
+        }
+
+        .card-info {
+            padding: 1rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #8597a3;
+        }
+
+        .card-info a {
+            display: block;
+            color: #6658d3;
+            text-decoration: none;
+        }
+    </style>
+
+
+
+    <div class="container" id="main1">
+        <!-- code here -->
+        <div class="card" id="main11">
+            <div class="card-image">
+                <h2 class="card-heading">
+                    Gram Panchayat
+                    <small id="small">Let us create your Documnet</small>
+                </h2>
+            </div>
+            <form class="card-form" id="idForm" action="/formsubmit" method="post">
+                <div class="input">
+                    <input type="text" class="input-field" value="DEMO TEXT: 1356787/68575785P" id="demoText1"
+                        required />
+                    <label class="input-label">DEMO TEXT-1</label>
+                </div>
+                <div class="input">
+                    <input type="text" class="input-field" value="DEMOP" id="demoText2" required />
+                    <label class="input-label">DEMO TEXT-2</label>
+                </div>
+
+                <div class="action">
+
+                    <button class="action-button" id="submitBtn">Get Document</button>
+
+                </div>
+            </form>
+            <div class="card-info">
+                <p>By submitting up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid" id="main2">
+        <div class="row">
+            <div id="ms-container">
+                <label for="ms-download">
+                    <div class="ms-content">
+                        <div class="ms-content-inside">
+                            <input type="checkbox" id="ms-download" />
+                            <div class="ms-line-down-container">
+                                <div class="ms-line-down"></div>
+                            </div>
+                            <div class="ms-line-point"></div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #main2 {
+            display: none;
+        }
+
+        /* 
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        } */
+
+        #ms-container {
+            width: 100%;
+            height: 100vh;
+            background: #1c9cf2;
+            display: none;
+        }
+
+        .ms-content {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 10px solid #2ea4f2;
+            border-radius: 100%;
+        }
+
+        .ms-content-inside {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .ms-line-down-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: rotate(0deg);
+            transition: transform 0s ease;
+        }
+
+        #ms-download {
+            display: none;
+        }
+
+        #ms-download:checked~.ms-line-down-container {
+            transform: rotate(-360deg);
+            transition: transform 1.5s ease 1.25s;
+        }
+
+        .ms-line-down {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            width: 10px;
+            height: 125px;
+            background: #FFFFFF;
+            border-radius: 50px;
+            transition: height .5s ease;
+        }
+
+        #ms-download:checked~.ms-line-down-container .ms-line-down {
+            height: 10px;
+            top: -20px;
+            animation: ms-bounce .5s forwards .55s;
+        }
+
+        #ms-download:checked~.ms-line-down-container .ms-line-down:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -94px;
+            right: 0;
+            bottom: 0;
+            width: 200px;
+            height: 200px;
+            border: 10px solid transparent;
+            border-radius: 100%;
+            animation: ms-border-fill .5s forwards 3s;
+        }
+
+        .ms-line-point {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 58px;
+            height: 130px;
+            transition: height .15s ease .45s;
+        }
+
+        #ms-download:checked~.ms-line-point {
+            height: 60px;
+        }
+
+        #ms-download:checked~.ms-line-point:before {
+            transform: rotate(90deg);
+            right: -10px;
+            animation: ms-check-right .25s forwards 3s;
+        }
+
+        #ms-download:checked~.ms-line-point:after {
+            transform: rotate(-90deg);
+            left: -10px;
+            animation: ms-check-left .25s forwards 3s;
+        }
+
+        .ms-line-point:before,
+        .ms-line-point:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 75px;
+            bottom: -10px;
+            background: #FFFFFF;
+            border-radius: 50px;
+            transition: transform .15s ease .47s, left .15s ease .47s, right .15s ease .47s;
+        }
+
+        .ms-line-point:before {
+            right: 0px;
+            transform: rotate(45deg);
+        }
+
+        .ms-line-point:after {
+            left: 0px;
+            transform: rotate(-45deg);
+        }
+
+        @keyframes ms-bounce {
+            0% {
+                top: -20px;
+            }
+
+            25% {
+                top: -250px;
+            }
+
+            50% {
+                top: -275px;
+            }
+
+            100% {
+                top: -190px;
+            }
+        }
+
+        @keyframes ms-check-left {
+            0% {
+                transform: rotate(-90deg);
+                left: -10px;
+                height: 75px;
+            }
+
+            100% {
+                transform: rotate(-45deg);
+                left: 0px;
+                height: 45px;
+            }
+        }
+
+        @keyframes ms-check-right {
+            0% {
+                transform: rotate(90deg);
+                right: -10px;
+                height: 75px;
+                bottom: -10px;
+            }
+
+            100% {
+                transform: rotate(45deg);
+                right: 10px;
+                height: 80px;
+                bottom: -15px;
+            }
+        }
+
+        @keyframes ms-border-fill {
+            0% {
+                border: 10px solid transparent;
+            }
+
+            100% {
+                border: 10px solid #FFFFFF;
+            }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+
+
+
+
+    <script>
+        document.getElementById("idForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Get the form data
+            const demoText1 = document.getElementById("demoText1").value;
+            const demoText2 = document.getElementById("demoText2").value;
+            const submitButton = document.getElementById("submitBtn");
+
+            // Disable the submit button and change its text to "Downloading..."
+            submitButton.disabled = true;
+            submitButton.style.backgroundColor = 'red';
+            submitButton.textContent = "Downloading...Plz wait";
+
+
+            // Create an object with the form data
+            const formData = { demoText1, demoText2 };
+
+            // Use Axios to send a POST request to your Node.js server
+            axios.post("http://127.0.0.1:2000/formsubmit", formData, {
+                // axios.post("https://gram-panchayat.onrender.com/formsubmit", formData, {
+
+                responseType: 'blob',
+            })
+                .then((response) => {
+                    console.log("Form data sent successfully:", response.data);
+
+
+                    const pdfBlob = response.data;
+
+                    console.log("data-pppppppppppppppppppppppppppppppppppppppppppppp-");
+                    console.log(response.data);
+
+
+                    // window.location.href = `donwlod.html?pdfUrl=${encodeURIComponent(pdfDownloadUrl)}`;
+                    const pdfBlobUrl = window.URL.createObjectURL(pdfBlob);
+
+                    // Redirect to download.html and pass the Blob URL as a query parameter
+                    window.location.href = `donwlod.html?pdfBlobUrl=${encodeURIComponent(pdfBlobUrl)}`;
+
+
+                    // Create a download link for the PDF
+                    const url = window.URL.createObjectURL(pdfBlob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'modified.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+
+                    console.log(url);
+
+                    // const pdfDownloadUrl = url; // The URL where the PDF can be downloaded
+
+                    // Redirect to download.html and pass the URL as a query parameter
+
+
+
+
+
+
+                })
+                .catch((error) => {
+                    console.error("Error sending form data:", error);
+                    // Handle errors here
+                });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
